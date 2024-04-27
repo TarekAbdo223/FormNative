@@ -12,17 +12,17 @@ import {
 
 export default function App() {
   const [username, setUsername] = useState("");
-  const [Password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
 
-  const validationForm = () => {
+  const validateForm = () => {
     let errors = {};
 
     if (!username) {
       errors.username = "Username is required";
     }
-    if (!Password) {
-      errors.Password = "password is required";
+    if (!password) {
+      errors.password = "password is required";
     }
 
     setErrors(errors);
@@ -31,8 +31,7 @@ export default function App() {
   };
 
   const handleSubmit = () => {
-    if (validationForm()) {
-      console.log(username, Password, "Submit");
+    if (validateForm()) {
       setUsername("");
       setPassword("");
       setErrors({});
@@ -67,11 +66,11 @@ export default function App() {
           style={styles.input}
           placeholder="Enter Your Password"
           secureTextEntry
-          value={Password}
+          value={password}
           onChangeText={setPassword}
         />
-        {errors.Password ? (
-          <Text style={styles.errorText}>{errors.Password}</Text>
+        {errors.password ? (
+          <Text style={styles.errorText}>{errors.password}</Text>
         ) : (
           ""
         )}
